@@ -1,21 +1,22 @@
 version: 2
- jobs:
-   build:
-     docker:
+jobs:
+  build:
+    docker:
       - image: circleci/node:latest
-     steps:
+
+    steps:
       - checkout
 
-      - run: 
+      - run:
           name: Setup
           command: yarn install
 
-      - run: 
+      - run:
           name: Linters
           command: yarn lint
-       
-       - run: 
+
+      - run:
           name: Tests
           command: |
-            yarn test --coverage
+            yarn test --coverage --passWithNoTests
             codecov < ./coverage/lcov.info || true
