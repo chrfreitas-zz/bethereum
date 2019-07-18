@@ -1,20 +1,20 @@
 version: 2
- jobs:
-   build:
-     docker:
-      - image: circleci/node:latest
-     steps:
-      - checkout
+  jobs:
+    build:
+      docker:
+        - image: circleci/node:latest
+      steps:
+        - checkout
 
-      - run: 
+        - run: 
           name: Setup
           command: yarn install
 
-      - run: 
+        - run: 
           name: Linters
           command: yarn lint
        
-       - run: 
+        - run: 
           name: Tests
           command: |
             yarn test --coverage
