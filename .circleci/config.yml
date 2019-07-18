@@ -18,5 +18,5 @@ jobs:
       - run:
           name: Tests
           command: |
-            yarn test --coverage
+            yarn test --coverage --passWithNoTests
             codecov < ./coverage/lcov.info || true
