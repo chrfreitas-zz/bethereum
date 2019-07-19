@@ -31,7 +31,7 @@ jobs:
           name: Build
           command: yarn build
 
-  deploy:
+  publish:
     docker:
       - image: circleci/node:latest
 
@@ -39,14 +39,14 @@ jobs:
       - checkout
 
       - run:
-          name: Deploy
-          command: echo 'Deploy'
+          name: Publish
+          command: echo 'Published'
 
 workflows:
   version: 2
   deploy:
     - build
-    - deploy:
+    - publish:
         requires:
           - build
         filters:
