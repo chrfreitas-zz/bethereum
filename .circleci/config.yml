@@ -18,18 +18,12 @@ jobs:
       - run:
           name: Unit Tests
           command: |
-            yarn test --coverage --passWithNoTests
+            yarn test --coverage
             codecov < ./coverage/lcov.info || true
 
       - run:
           name: Integration Tests
-          command: |
-            yarn cypress
-            codecov < ./coverage/lcov.info || true
-
-      - run:
-          name: Build
-          command: yarn build
+          command: yarn cypress
 
   publish:
     docker:
@@ -39,10 +33,16 @@ jobs:
       - checkout
 
       - run:
+          name: Setup
+          command: yarn install
+
+      - run:
+          name: Build
+          command: yarn build
+
+      - run:
           name: Publish
-          command: |
-            yarn add netlify-cli
-            ./node_modules/.bin/netlify deploy --prod --dir=build
+          command: yarn deploy:prod
 
 workflows:
   version: 2
