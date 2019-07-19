@@ -28,8 +28,8 @@ jobs:
             codecov < ./coverage/lcov.info || true
 
       - run:
-        name: Build
-        command: yarn build
+          name: Build
+          command: yarn build
 
 jobs:
   deploy:
