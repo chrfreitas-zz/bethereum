@@ -40,7 +40,9 @@ jobs:
 
       - run:
           name: Publish
-          command: echo 'Published'
+          command: |
+            yarn add netlify-cli
+            ./node_modules/.bin/netlify deploy --prod --dir=build
 
 workflows:
   version: 2
