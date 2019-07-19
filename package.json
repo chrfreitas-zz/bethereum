@@ -1,9 +1,8 @@
 {
   "name": "bethereum",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "private": true,
   "dependencies": {
-    "netlify-cli": "^2.11.29",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
@@ -16,7 +15,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint src/",
     "cypress": "cypress run",
-    "deploy:prod": "netlify deploy --prod --dir=build"
+    "deploy:staging": "surge --project ./build --domain bethereum-staging.surge.sh",
+    "deploy:prod": "surge --project ./build --domain bethereum.surge.sh"
   },
   "browserslist": {
     "production": [
@@ -31,6 +31,7 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^3.4.0"
+    "cypress": "^3.4.0",
+    "surge": "^0.21.3"
   }
 }
