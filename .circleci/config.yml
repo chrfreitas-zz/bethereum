@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:latest
+      - image: cypress/base
 
     steps:
       - checkout
@@ -16,7 +16,40 @@ jobs:
           command: yarn lint
 
       - run:
-          name: Tests
+          name: Unit Tests
           command: |
             yarn test --coverage --passWithNoTests
             codecov < ./coverage/lcov.info || true
+
+      - run:
+          name: Integration Tests
+          command: |
+            yarn cypress
+            codecov < ./coverage/lcov.info || true
+
+      - run:
+          name: Build
+          command: yarn build
+
+  publish:
+    docker:
+      - image: circleci/node:latest
+
+    steps:
+      - checkout
+
+      - run:
+          name: Publish
+          command: echo 'Published'
+
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - build
+      - publish:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
