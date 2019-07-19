@@ -31,7 +31,6 @@ jobs:
           name: Build
           command: yarn build
 
-jobs:
   deploy:
     docker:
       - image: circleci/node:latest
@@ -43,7 +42,6 @@ jobs:
           name: Deploy
           command: echo 'Deploy'
 
-
 workflows:
   version: 2
   deploy:
@@ -54,4 +52,3 @@ workflows:
         filters:
           branches:
             only: master
-            
