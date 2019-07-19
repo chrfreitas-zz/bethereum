@@ -26,3 +26,32 @@ jobs:
           command: |
             yarn cypress
             codecov < ./coverage/lcov.info || true
+
+      - run:
+        name: Build
+        command: yarn build      
+
+jobs:
+  deploy:
+    docker:
+      - image: circleci/node:latest
+
+      steps:
+        - checkout
+
+      - run:
+          name: Deploy
+          command: echo 'Deploy'
+
+
+workflows:
+  version: 2
+  deploy:
+    - build
+    - deploy:
+        requires:
+          - build
+        filters:
+          branches:
+            only: master
+            
