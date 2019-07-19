@@ -29,19 +29,19 @@ jobs:
 
       - run:
         name: Build
-        command: yarn build      
+        command: yarn build
 
 jobs:
   deploy:
     docker:
       - image: circleci/node:latest
 
-      steps:
-        - checkout
+    steps:
+      - checkout
 
       - run:
-          name: Deploy
-          command: echo 'Deploy'
+        name: Deploy
+        command: echo 'Deploy'
 
 
 workflows:
