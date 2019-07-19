@@ -42,7 +42,7 @@ jobs:
           name: Publish
           command: |
             yarn add netlify-cli
-            ./node_modules/.bin/netlify deploy --prod --dir=build
+            netlify deploy --prod --dir=build
 
 workflows:
   version: 2
@@ -54,4 +54,4 @@ workflows:
             - build
           filters:
             branches:
-              only: master
+              only: dev
