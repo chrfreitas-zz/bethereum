@@ -42,7 +42,9 @@ jobs:
 
       - run:
           name: Publish
-          command: yarn deploy:prod
+          command: |
+            pwd
+            yarn deploy:prod
 
 workflows:
   version: 2
