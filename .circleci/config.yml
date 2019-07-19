@@ -40,8 +40,8 @@ jobs:
       - checkout
 
       - run:
-        name: Deploy
-        command: echo 'Deploy'
+          name: Deploy
+          command: echo 'Deploy'
 
 
 workflows:
