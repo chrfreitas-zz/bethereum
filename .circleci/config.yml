@@ -45,10 +45,11 @@ jobs:
 workflows:
   version: 2
   deploy:
-    - build
-    - publish:
-        requires:
-          - build
-        filters:
-          branches:
-            only: master
+    jobs:
+      - build
+      - publish:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
