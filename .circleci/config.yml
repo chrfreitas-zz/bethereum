@@ -25,10 +25,6 @@ jobs:
           name: Integration Tests
           command: yarn cypress
 
-      - run:
-          name: Build
-          command: yarn build
-
   publish:
     docker:
       - image: circleci/node:latest
@@ -39,6 +35,10 @@ jobs:
       - run:
           name: Setup
           command: yarn install
+
+      - run:
+          name: Build
+          command: yarn build
 
       - run:
           name: Publish
