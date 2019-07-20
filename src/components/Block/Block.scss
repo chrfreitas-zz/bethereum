@@ -8,6 +8,7 @@
   color: $gray;
   cursor: pointer;
   transition: border 0.3s, color 0.3s;
+  display: block;
 
   &:hover {
     border: 1px solid $gray;

@@ -1,35 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import Ethereum from 'api/ethereum';
 import styles from './Block.scss';
 
-class Block extends Component {
-  state = {
-    info: {},
-  };
-
-  openDetail = async blockNumber => {
-    const info = await Ethereum.getBlock(blockNumber);
-    this.setState({ info });
-  };
-
-  render() {
-    const { data } = this.props;
-    const { info } = this.state;
-
-    return (
-      <li className="block" onClick={() => this.openDetail(data.number)}>
-        <div>{data.hash.substring(0, 7)}</div>
-        {info && (
-          <div>
-            <div>{info.hash}</div>
-            <div>{info.timestamp}</div>
-            <div>{info.size}</div>
-          </div>
-        )}
-      </li>
-    );
-  }
-}
+const Block = ({ data }) => (
+  <Link className="block" to={`/block/${data.number}`}>
+    {data.hash.substring(0, 7)}
+  </Link>
+);
 
 export default Block;
