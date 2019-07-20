@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import BlockList from 'components/BlockList';
+import Main from 'screens/Main';
+import resetcss from 'styles/reset.scss';
+import basecss from 'styles/base.scss';
 
-ReactDOM.render(<BlockList />, document.getElementById('root'));
+ReactDOM.render(<Main />, document.getElementById('root'));
