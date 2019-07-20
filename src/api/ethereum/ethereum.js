@@ -18,6 +18,11 @@ const Ethereum = {
 
     return Promise.all(requests);
   },
+
+  getBlock: number => {
+    const web3 = new Web3('https://mainnet.infura.io/');
+    return web3.eth.getBlock(number);
+  },
 };
 
 export default Ethereum;
