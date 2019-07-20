@@ -1,8 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Main from 'screens/Main';
-import resetcss from 'styles/reset.scss';
-import basecss from 'styles/base.scss';
+import BlockList from 'screens/BlockList';
+import BlockDetail from 'screens/BlockDetail';
+import styles from 'styles/base.scss';
 
-ReactDOM.render(<Main />, document.getElementById('root'));
+const Navigation = () => (
+  <Main>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact={true} component={BlockList} />
+        <Route path="/block/:number" component={BlockDetail} />
+      </Switch>
+    </BrowserRouter>
+  </Main>
+);
+
+ReactDOM.render(<Navigation />, document.getElementById('root'));
