@@ -1,7 +1,21 @@
+@import 'styles/color.scss';
+
 .main {
   padding: 24px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .main__column {
+  margin: 24px 0 0 0;
   width: 60%;
+}
+
+.main__header {
+  width: 60%;
+  font-size: 24px;
+  color: $gray;
+  border-bottom: 1px solid $orchid;
+  padding: 0 0 8px 8px;
 }
