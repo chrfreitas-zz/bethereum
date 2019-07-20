@@ -1,6 +1,6 @@
 {
   "name": "bethereum",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "private": true,
   "dependencies": {
     "node-sass": "^4.12.0",
@@ -13,6 +13,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:watch": "react-scripts test --watch",
     "eject": "react-scripts eject",
     "lint": "eslint src/",
     "cypress": "cypress run",
