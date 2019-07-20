@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Ethereum from 'api/ethereum';
+import styles from './Block.scss';
 
 class Block extends Component {
   state = {
@@ -17,7 +18,7 @@ class Block extends Component {
     const { info } = this.state;
 
     return (
-      <li onClick={() => this.openDetail(data.number)}>
+      <li className="block" onClick={() => this.openDetail(data.number)}>
         <div>{data.number}</div>
         {info && (
           <div>
