@@ -5,7 +5,9 @@ import styles from './Main.scss';
 
 const Main = () => (
   <div className="main">
-    <BlockList />
+    <div className="main__column">
+      <BlockList />
+    </div>
   </div>
 );
 

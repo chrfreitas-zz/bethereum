@@ -19,7 +19,7 @@ class Block extends Component {
 
     return (
       <li className="block" onClick={() => this.openDetail(data.number)}>
-        <div>{data.number}</div>
+        <div>{data.hash.substring(0, 7)}</div>
         {info && (
           <div>
             <div>{info.hash}</div>
