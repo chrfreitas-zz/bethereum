@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import Ethereum from 'api/ethereum';
 
-const NUMBER_LOAD_BLOCKS = 20;
+import Ethereum from 'api/ethereum';
+import Block from 'components/Block';
 
 class BlockList extends Component {
   state = {
     blocks: [],
   };
+
+  NUMBER_LOAD_BLOCKS = 20;
 
   async componentDidMount() {
     this.loadBlocks();
@@ -20,7 +22,7 @@ class BlockList extends Component {
   };
 
   loadBlocks = async () => {
-    const blocks = await Ethereum.getLastBlocks(NUMBER_LOAD_BLOCKS);
+    const blocks = await Ethereum.getLastBlocks(this.NUMBER_LOAD_BLOCKS);
     this.setState({ blocks });
   };
 
@@ -28,7 +30,7 @@ class BlockList extends Component {
     const { blocks } = this.state;
     return blocks.map(block => (
       <ul key={block.number}>
-        <li>{block.number}</li>
+        <Block data={block} />
       </ul>
     ));
   }
