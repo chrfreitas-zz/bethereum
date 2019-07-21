@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const BlockDetail = ({ block, transactions }) => (
   <div>
@@ -11,7 +12,9 @@ const BlockDetail = ({ block, transactions }) => (
     <div>Transactions:</div>
     <div>
       {transactions.map(transaction => (
-        <div key={transaction.hash}>Hash: {transaction.hash}</div>
+        <Link key={transaction.hash} to={`/transaction/${transaction.hash}`}>
+          Hash: {transaction.hash}
+        </Link>
       ))}
     </div>
   </div>
