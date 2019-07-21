@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// eslint-disable-next-line
 import styles from './Block.scss';
 
 const Block = ({ data }) => (
