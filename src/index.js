@@ -6,6 +6,7 @@ import Main from 'screens/Main';
 import BlockList from 'screens/BlockList';
 import BlockDetail from 'screens/BlockDetail';
 import TransactionDetail from 'screens/TransactionDetail';
+// eslint-disable-next-line
 import styles from 'styles/base.scss';
 
 const App = () => (
