@@ -3,19 +3,19 @@
 .main {
   padding: 24px;
   display: flex;
-  align-items: center;
-  flex-direction: column;
-}
+  justify-content: center;
+  max-width: 500px;
+  margin: 0 auto;
 
-.main__column {
-  margin: 24px 0 0 0;
-  width: 60%;
-}
+  &__logo {
+    width: 32px;
+  }
 
-.main__header {
-  width: 60%;
-  font-size: 24px;
-  color: $gray;
-  border-bottom: 1px solid $orchid;
-  padding: 0 0 8px 8px;
+  &__sidebar {
+    flex-basis: 60px;
+  }
+
+  &__content {
+    flex: 1;
+  }
 }
