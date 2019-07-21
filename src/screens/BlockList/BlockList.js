@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import BlockList from 'components/BlockList';
 import Header from 'components/Header';
+import Spinner from 'components/Spinner';
 import Ethereum from 'api/ethereum';
 
 const NUMBER_LOAD_BLOCKS = 10;
@@ -29,7 +30,12 @@ class BlockListScreen extends Component {
 
   render() {
     const { blocks } = this.state;
-    return [<Header>Blocks</Header>, <BlockList data={blocks} />];
+    return (
+      <div>
+        <Header>Blocks</Header>
+        {blocks.length === 0 ? <Spinner /> : <BlockList data={blocks} />}
+      </div>
+    );
   }
 }
 
