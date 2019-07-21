@@ -23,6 +23,20 @@ const Ethereum = {
     const web3 = new Web3('https://mainnet.infura.io/');
     return web3.eth.getBlock(number);
   },
+
+  getTransactionsInfo: transactions => {
+    const web3 = new Web3('https://mainnet.infura.io/');
+    const requests = transactions.map(transaction =>
+      web3.eth.getTransaction(transaction)
+    );
+
+    return Promise.all(requests);
+  },
+
+  convertToEther: value => {
+    const web3 = new Web3('https://mainnet.infura.io/');
+    return web3.utils.fromWei(value);
+  },
 };
 
 export default Ethereum;

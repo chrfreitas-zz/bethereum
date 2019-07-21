@@ -7,7 +7,7 @@ import BlockList from 'screens/BlockList';
 import BlockDetail from 'screens/BlockDetail';
 import styles from 'styles/base.scss';
 
-const Navigation = () => (
+const App = () => (
   <Main>
     <BrowserRouter>
       <Switch>
@@ -18,4 +18,4 @@ const Navigation = () => (
   </Main>
 );
 
-ReactDOM.render(<Navigation />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));

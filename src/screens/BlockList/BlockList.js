@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import BlockList from 'components/BlockList';
 import Ethereum from 'api/ethereum';
 
-const NUMBER_LOAD_BLOCKS = 20;
+const NUMBER_LOAD_BLOCKS = 10;
 
 class BlockListScreen extends Component {
   state = {

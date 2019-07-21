@@ -5,18 +5,39 @@ import Ethereum from 'api/ethereum';
 
 class BlockDetailScreen extends Component {
   state = {
-    info: null,
+    block: null,
+    transactions: null,
   };
 
-  componentDidMount = async blockNumber => {
+  componentDidMount = async () => {
+    await this.getBlockInfo();
+    this.getTransactionsInfo();
+  };
+
+  getBlockInfo = async () => {
     const { match } = this.props;
-    const info = await Ethereum.getBlock(match.params.number);
-    this.setState({ info });
+    const block = await Ethereum.getBlock(match.params.number);
+
+    this.setState({ block });
+  };
+
+  getTransactionsInfo = async () => {
+    const { block } = this.state;
+    const transactions = await Ethereum.getTransactionsInfo(block.transactions);
+
+    this.setState({
+      transactions: transactions.filter(
+        transaction => Number(transaction.value) > 0
+      ),
+    });
   };
 
   render() {
-    const { info } = this.state;
-    return info && <BlockDetail data={info} />;
+    const { block, transactions } = this.state;
+    return (
+      block &&
+      transactions && <BlockDetail block={block} transactions={transactions} />
+    );
   }
 }
 
