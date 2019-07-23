@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { loadBlocks } from 'redux/actions/BlockList';
+import { loadBlocks } from 'redux/actions';
 import BlockList from 'screens/BlockList';
 
 const mapStateToProps = state => ({

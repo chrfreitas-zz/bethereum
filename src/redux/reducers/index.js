@@ -1,7 +1,17 @@
-import { combineReducers } from 'redux';
+import { LOAD_BLOCKS_SUCCESS } from 'redux/actions';
 
-import BlockList from 'redux/reducers/BlockList';
+const initialState = {
+  blocks: [],
+};
 
-export default combineReducers({
-  blocks: BlockList,
-});
+export default (state = initialState, action) => {
+  switch (action.type) {
+    case LOAD_BLOCKS_SUCCESS:
+      return {
+        ...state,
+        blocks: action.data,
+      };
+    default:
+      return state;
+  }
+};

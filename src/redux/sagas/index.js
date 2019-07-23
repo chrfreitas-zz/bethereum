@@ -1,7 +1,17 @@
-import { all } from 'redux-saga/effects';
+import { all, call, put, takeEvery } from 'redux-saga/effects';
 
-import BlockList from 'redux/sagas/BlockList';
+import { LOAD_BLOCKS, loadBlocksSuccess, loadBlocksFail } from 'redux/actions';
+import Ethereum from 'api/ethereum';
 
-export default function* rootSaga() {
-  yield all([...BlockList]);
+function* loadBlocksSaga(action) {
+  try {
+    const blocks = yield call(Ethereum.getLastBlocks, 10);
+    yield put(loadBlocksSuccess(blocks));
+  } catch {
+    yield put(loadBlocksFail());
+  }
+}
+
+export default function* sagas() {
+  yield all([takeEvery(LOAD_BLOCKS, loadBlocksSaga)]);
 }
