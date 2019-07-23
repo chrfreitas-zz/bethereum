@@ -4,8 +4,8 @@ import TransactionDetail from 'components/TransactionDetail';
 
 class TransactionDetailScreen extends Component {
   async componentDidMount() {
-    const { getTransactionDetail, hash } = this.props;
-    getTransactionDetail(hash);
+    const { getTransactionDetail, id } = this.props;
+    getTransactionDetail(id);
   }
 
   render() {

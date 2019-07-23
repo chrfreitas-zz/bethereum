@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { getBlockDetail } from 'redux/actions';
 import BlockDetail from 'screens/BlockDetail';
 
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = (state, { match }) => ({
   block: state.block,
   transactions: state.transactions,
-  match: props.match,
+  id: match.params.id,
 });
 
 const mapDispatchToProps = dispatch => ({

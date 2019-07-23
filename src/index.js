@@ -19,13 +19,9 @@ const App = () => (
       <BrowserRouter>
         <Switch>
           <Route path="/" exact={true} component={BlockList} />
-          <Route path="/block/:number" component={BlockDetail} />
+          <Route path="/block/:id" component={BlockDetail} />
           <Route path="/transactions/" exact component={TransactionsList} />
-          <Route
-            path="/transactions/:number"
-            exact
-            component={TransactionDetail}
-          />
+          <Route path="/transactions/:id" exact component={TransactionDetail} />
         </Switch>
       </BrowserRouter>
     </Provider>
