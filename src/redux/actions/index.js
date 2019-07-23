@@ -6,6 +6,8 @@ export const GET_BLOCK_DETAIL = 'GET_BLOCK_DETAIL';
 export const GET_BLOCK_DETAIL_SUCCESS = 'GET_BLOCK_DETAIL_SUCCESS';
 export const GET_BLOCK_DETAIL_FAIL = 'GET_BLOCK_DETAIL_FAIL';
 
+export const GET_TRANSACTION_DETAIL = 'GET_TRANSACTION_DETAIL';
+
 export const loadBlocks = () => ({
   type: LOAD_BLOCKS,
 });
@@ -31,4 +33,9 @@ export const getBlockDetailSuccess = data => ({
 
 export const getBlockDetailFail = () => ({
   type: GET_BLOCK_DETAIL_FAIL,
+});
+
+export const getTransactionDetail = hash => ({
+  type: GET_TRANSACTION_DETAIL,
+  hash,
 });
