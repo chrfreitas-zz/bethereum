@@ -9,7 +9,9 @@ const BlockDetail = ({ block, transactions }) => (
     <div>Size: {block.size}</div>
     <div>Gas Used: {block.gasUsed}</div>
     <div>Number: {block.number}</div>
-    <div>Transactions: {transactions.length}</div>
+    <div>
+      Transactions: <Link to="/transactions">{transactions.length}</Link>
+    </div>
   </div>
 );
 

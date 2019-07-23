@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import Main from 'screens/Main';
 import BlockList from 'containers/BlockList';
 import BlockDetail from 'containers/BlockDetail';
+import TransactionsList from 'containers/TransactionsList';
 import TransactionDetail from 'screens/TransactionDetail';
 import store from 'redux/store';
 
@@ -19,6 +20,7 @@ const App = () => (
         <Switch>
           <Route path="/" exact={true} component={BlockList} />
           <Route path="/block/:number" component={BlockDetail} />
+          <Route path="/transactions/" component={TransactionsList} />
           <Route path="/transaction/:number" component={TransactionDetail} />
         </Switch>
       </BrowserRouter>
