@@ -13,6 +13,8 @@ class BlockListScreen extends Component {
   };
 
   async componentDidMount() {
+    this.props.loadBlocks();
+
     this.loadBlocks();
     this.startWatch();
   }
