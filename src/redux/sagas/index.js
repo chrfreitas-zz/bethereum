@@ -22,7 +22,18 @@ function* loadBlocksSaga(action) {
 function* getBlockDetailSaga(action) {
   try {
     const block = yield call(Ethereum.getBlock, action.blockNumber);
-    yield put(getBlockDetailSuccess(block));
+    const transactions = yield call(
+      Ethereum.getTransactionsInfo,
+      block.transactions
+    );
+
+    const transactionWithEther = transactions.filter(
+      transaction => Number(transaction.value) > 0
+    );
+
+    yield put(
+      getBlockDetailSuccess({ block, transactions: transactionWithEther })
+    );
   } catch {
     yield put(getBlockDetailFail());
   }

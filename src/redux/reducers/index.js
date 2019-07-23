@@ -3,6 +3,7 @@ import { LOAD_BLOCKS_SUCCESS, GET_BLOCK_DETAIL_SUCCESS } from 'redux/actions';
 const initialState = {
   blocks: [],
   block: {},
+  transactions: [],
 };
 
 export default (state = initialState, action) => {
@@ -15,7 +16,8 @@ export default (state = initialState, action) => {
     case GET_BLOCK_DETAIL_SUCCESS:
       return {
         ...state,
-        block: action.data,
+        block: action.data.block,
+        transactions: action.data.transactions,
       };
     default:
       return state;

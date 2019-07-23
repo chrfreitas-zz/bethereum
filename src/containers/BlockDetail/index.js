@@ -5,6 +5,7 @@ import BlockDetail from 'screens/BlockDetail';
 
 const mapStateToProps = (state, props) => ({
   block: state.block,
+  transactions: state.transactions,
   match: props.match,
 });
 

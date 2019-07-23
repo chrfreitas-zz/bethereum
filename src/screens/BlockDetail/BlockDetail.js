@@ -5,13 +5,12 @@ import BlockDetail from 'components/BlockDetail';
 class BlockDetailScreen extends Component {
   componentDidMount = async () => {
     const { getBlockDetail, match } = this.props;
-
     getBlockDetail(match.params.number);
   };
 
   render() {
-    const { block } = this.props;
-    return block && <BlockDetail block={block} transactions={[]} />;
+    const { block, transactions } = this.props;
+    return block && <BlockDetail block={block} transactions={transactions} />;
   }
 }
 
