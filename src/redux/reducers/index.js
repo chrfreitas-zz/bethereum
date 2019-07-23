@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import { blocks } from 'redux/reducers/blocks';
+import BlockList from 'redux/reducers/BlockList';
 
 export default combineReducers({
-  blocks,
+  blocks: BlockList,
 });

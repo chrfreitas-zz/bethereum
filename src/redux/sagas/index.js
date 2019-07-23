@@ -1,7 +1,7 @@
-import { takeEvery } from 'redux-saga/effects';
+import { all } from 'redux-saga/effects';
 
-const handleNewMessage = function* handleNewMessage(params) {
-  yield takeEvery('LOAD_BLOCKS', action => console.log(action));
-};
+import BlockList from 'redux/sagas/BlockList';
 
-export default handleNewMessage;
+export default function* rootSaga() {
+  yield all([...BlockList]);
+}

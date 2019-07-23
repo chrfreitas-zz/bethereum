@@ -5,7 +5,12 @@ import reducers from 'redux/reducers';
 import sagas from 'redux/sagas';
 
 const sagaMiddleware = createSagaMiddleware();
-const store = createStore(reducers, applyMiddleware(sagaMiddleware));
+const createStoreWithMiddleware = applyMiddleware(sagaMiddleware)(createStore);
+
+const store = createStoreWithMiddleware(
+  reducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 sagaMiddleware.run(sagas);
 

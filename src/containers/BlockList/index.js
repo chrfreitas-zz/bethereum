@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 
+import { loadBlocks } from 'redux/actions/BlockList';
 import BlockList from 'screens/BlockList';
 
 const mapStateToProps = state => ({
-  todo: state.blocks,
+  blocks: state.blocks,
 });
 
 const mapDispatchToProps = dispatch => ({
-  loadBlocks: () => dispatch({ type: 'LOAD_BLOCKS' }),
+  loadBlocks: () => dispatch(loadBlocks()),
 });
 
 export default connect(

@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import Main from 'screens/Main';
-import blocks from 'containers/blocks';
+import BlockList from 'containers/BlockList';
 import BlockDetail from 'screens/BlockDetail';
 import TransactionDetail from 'screens/TransactionDetail';
 import store from 'redux/store';
@@ -17,7 +17,7 @@ const App = () => (
     <Provider store={store}>
       <BrowserRouter>
         <Switch>
-          <Route path="/" exact={true} component={blocks} />
+          <Route path="/" exact={true} component={BlockList} />
           <Route path="/block/:number" component={BlockDetail} />
           <Route path="/transaction/:number" component={TransactionDetail} />
         </Switch>
