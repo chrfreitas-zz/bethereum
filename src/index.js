@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 import Main from 'screens/Main';
 import BlockList from 'containers/BlockList';
-import BlockDetail from 'screens/BlockDetail';
+import BlockDetail from 'containers/BlockDetail';
 import TransactionDetail from 'screens/TransactionDetail';
 import store from 'redux/store';
 
