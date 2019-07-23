@@ -7,7 +7,7 @@ import styles from './Main.scss';
 const Main = ({ children }) => (
   <div className="main">
     <div className="main__sidebar">
-      <img className="main__logo" src={EthereumLogo} />
+      <img className="main__logo" src={EthereumLogo} alt="Logo" />
     </div>
     <div className="main__content">{children}</div>
   </div>

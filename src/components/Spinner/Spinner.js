@@ -1,5 +1,6 @@
 import React from 'react';
 
+// eslint-disable-next-line
 import styles from './Spinner.scss';
 
 const Spinner = () => (
