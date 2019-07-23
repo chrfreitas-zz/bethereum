@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { loadBlocks } from 'redux/actions';
+import { getBlocks } from 'redux/actions';
 import BlockList from 'screens/BlockList';
 
 const mapStateToProps = state => ({
@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  loadBlocks: () => dispatch(loadBlocks()),
+  getBlocks: () => dispatch(getBlocks()),
 });
 
 export default connect(

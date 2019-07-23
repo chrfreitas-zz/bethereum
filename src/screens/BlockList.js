@@ -6,8 +6,8 @@ import Spinner from 'components/Spinner';
 
 class BlockListScreen extends Component {
   async componentDidMount() {
-    const { loadBlocks } = this.props;
-    loadBlocks();
+    const { getBlocks } = this.props;
+    getBlocks();
   }
 
   render() {

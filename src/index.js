@@ -20,8 +20,16 @@ const App = () => (
         <Switch>
           <Route path="/" exact={true} component={BlockList} />
           <Route path="/block/:id" component={BlockDetail} />
-          <Route path="/transactions/" exact component={TransactionsList} />
-          <Route path="/transactions/:id" exact component={TransactionDetail} />
+          <Route
+            path="/block/:id/transactions/"
+            exact
+            component={TransactionsList}
+          />
+          <Route
+            path="/block/:id/transactions/:id"
+            exact
+            component={TransactionDetail}
+          />
         </Switch>
       </BrowserRouter>
     </Provider>

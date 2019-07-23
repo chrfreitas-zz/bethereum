@@ -1,25 +1,25 @@
 import { all, call, put, takeEvery } from 'redux-saga/effects';
 
 import {
-  LOAD_BLOCKS,
-  GET_BLOCK_DETAIL,
-  loadBlocksSuccess,
-  loadBlocksFail,
-  getBlockDetailSuccess,
-  getBlockDetailFail,
+  GET_BLOCKS,
+  GET_BLOCK_INFO,
+  getBlocksSuccess,
+  getBlocksFail,
+  getBlockInfoSuccess,
+  getBlockInfoFail,
 } from 'redux/actions';
 import Ethereum from 'api/ethereum';
 
-function* loadBlocksSaga(action) {
+function* getBlocksSaga(action) {
   try {
     const blocks = yield call(Ethereum.getLastBlocks, 10);
-    yield put(loadBlocksSuccess(blocks));
+    yield put(getBlocksSuccess(blocks));
   } catch {
-    yield put(loadBlocksFail());
+    yield put(getBlocksFail());
   }
 }
 
-function* getBlockDetailSaga(action) {
+function* getBlockInfoSaga(action) {
   try {
     const block = yield call(Ethereum.getBlock, action.blockNumber);
     const transactions = yield call(
@@ -32,16 +32,16 @@ function* getBlockDetailSaga(action) {
     );
 
     yield put(
-      getBlockDetailSuccess({ block, transactions: transactionWithEther })
+      getBlockInfoSuccess({ block, transactions: transactionWithEther })
     );
   } catch {
-    yield put(getBlockDetailFail());
+    yield put(getBlockInfoFail());
   }
 }
 
 export default function* sagas() {
   yield all([
-    takeEvery(LOAD_BLOCKS, loadBlocksSaga),
-    takeEvery(GET_BLOCK_DETAIL, getBlockDetailSaga),
+    takeEvery(GET_BLOCKS, getBlocksSaga),
+    takeEvery(GET_BLOCK_INFO, getBlockInfoSaga),
   ]);
 }

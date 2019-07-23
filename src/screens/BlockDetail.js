@@ -4,8 +4,8 @@ import BlockDetail from 'components/BlockDetail';
 
 class BlockDetailScreen extends Component {
   componentDidMount = async () => {
-    const { getBlockDetail, id } = this.props;
-    getBlockDetail(id);
+    const { getBlockInfo, id } = this.props;
+    getBlockInfo(id);
   };
 
   render() {
