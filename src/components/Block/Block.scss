@@ -1,17 +1,16 @@
 @import 'styles/color.scss';
 
 .block {
-  padding: 8px 16px;
+  padding: 8px 16px 16px 0px;
   margin: 8px 0;
   border-radius: 4px;
-  border: 1px solid transparent;
-  color: $gray;
+  color: $gray-light;
   cursor: pointer;
   transition: border 0.3s, color 0.3s;
   display: block;
+  text-decoration: none;
 
   &:hover {
-    border: 1px solid $gray;
-    color: $orchid;
+    color: $black;
   }
 }

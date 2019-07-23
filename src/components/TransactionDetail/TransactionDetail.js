@@ -1,12 +1,12 @@
 import React from 'react';
 
-const TrasanctionDetail = ({ data }) => (
+const TrasanctionDetail = ({ transaction }) => (
   <div>
-    <div>Block Hash: {data.blockHash}</div>
-    <div>Hash: {data.hash}</div>
-    <div>From: {data.from}</div>
-    <div>To: {data.to}</div>
-    <div>Value: {data.value}</div>
+    <div>Block Hash: {transaction.blockHash}</div>
+    <div>Hash: {transaction.hash}</div>
+    <div>From: {transaction.from}</div>
+    <div>To: {transaction.to}</div>
+    <div>Value: {transaction.value}</div>
   </div>
 );
 

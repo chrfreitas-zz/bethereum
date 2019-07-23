@@ -1,0 +1,9 @@
+@import 'styles/color.scss';
+
+.header {
+  font-size: 32px;
+  color: $gray-dark;
+  margin: 0 0 24px -2px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}

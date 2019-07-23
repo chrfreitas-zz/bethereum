@@ -11,10 +11,9 @@ const Ethereum = {
 
     const block = await web3.eth.getBlock('latest');
 
-    let counter = 0;
     const requests = Array(amount)
       .fill()
-      .map(() => web3.eth.getBlock(block.number - counter++));
+      .map((item, index) => web3.eth.getBlock(block.number - index));
 
     return Promise.all(requests);
   },

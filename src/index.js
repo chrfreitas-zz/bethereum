@@ -1,23 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 import Main from 'screens/Main';
-import BlockList from 'screens/BlockList';
-import BlockDetail from 'screens/BlockDetail';
-import TransactionDetail from 'screens/TransactionDetail';
+import BlockList from 'containers/BlockList';
+import BlockDetail from 'containers/BlockDetail';
+import TransactionsList from 'containers/TransactionsList';
+import TransactionDetail from 'containers/TransactionDetail';
+import store from 'redux/store';
+
 // eslint-disable-next-line
 import styles from 'styles/base.scss';
 
 const App = () => (
   <Main>
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" exact={true} component={BlockList} />
-        <Route path="/block/:number" component={BlockDetail} />
-        <Route path="/transaction/:number" component={TransactionDetail} />
-      </Switch>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact={true} component={BlockList} />
+          <Route path="/block/:number" component={BlockDetail} />
+          <Route path="/transactions/" exact component={TransactionsList} />
+          <Route
+            path="/transactions/:number"
+            exact
+            component={TransactionDetail}
+          />
+        </Switch>
+      </BrowserRouter>
+    </Provider>
   </Main>
 );
 

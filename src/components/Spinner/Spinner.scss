@@ -1,0 +1,64 @@
+@import 'styles/color.scss';
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin: 100px auto;
+
+  &__square {
+    width: 33%;
+    height: 33%;
+    background-color: $gray-dark;
+    float: left;
+    animation: spinnerGridScaleDelay 1.3s infinite ease-in-out;
+  }
+
+  &__square1 {
+    animation-delay: 0.2s;
+  }
+
+  &__square2 {
+    animation-delay: 0.3s;
+  }
+
+  &__square3 {
+    animation-delay: 0.4s;
+  }
+
+  &__square4 {
+    animation-delay: 0.1s;
+  }
+
+  &__square5 {
+    animation-delay: 0.2s;
+  }
+
+  &__square6 {
+    animation-delay: 0.3s;
+  }
+
+  &__square7 {
+    animation-delay: 0s;
+  }
+
+  &__square8 {
+    animation-delay: 0.1s;
+  }
+
+  &__square9 {
+    animation-delay: 0.2s;
+  }
+}
+
+@keyframes spinnerGridScaleDelay {
+  0%,
+  70%,
+  100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  }
+  35% {
+    -webkit-transform: scale3D(0, 0, 1);
+    transform: scale3D(0, 0, 1);
+  }
+}
