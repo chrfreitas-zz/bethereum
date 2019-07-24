@@ -1,27 +1,14 @@
 import { all, call, put, takeEvery } from 'redux-saga/effects';
 
-import {
-  GET_BLOCKS,
-  GET_BLOCK_INFO,
-  GET_TRANSACTIONS,
-  GET_TRANSACTION_INFO,
-  getBlocksSuccess,
-  getBlocksFail,
-  getBlockInfoSuccess,
-  getBlockInfoFail,
-  getTransactionsSuccess,
-  getTransactionsFail,
-  getTransactionInfoSuccess,
-  getTransactionInfoFail,
-} from 'redux/actions';
+import * as actions from 'redux/actions';
 import Ethereum from 'api/ethereum';
 
 function* getBlocksSaga(action) {
   try {
     const blocks = yield call(Ethereum.getLastBlocks, 10);
-    yield put(getBlocksSuccess(blocks));
+    yield put(actions.getBlocksSuccess(blocks));
   } catch {
-    yield put(getBlocksFail());
+    yield put(actions.getBlocksFail());
   }
 }
 
@@ -37,11 +24,11 @@ function* getBlockInfoAndTransactionsSaga(action) {
       transaction => Number(transaction.value) > 0
     );
 
-    yield put(getBlockInfoSuccess(block));
-    yield put(getTransactionsSuccess(transactionWithEther));
+    yield put(actions.getBlockInfoSuccess(block));
+    yield put(actions.getTransactionsSuccess(transactionWithEther));
   } catch {
-    yield put(getBlockInfoFail());
-    yield put(getTransactionsFail());
+    yield put(actions.getBlockInfoFail());
+    yield put(actions.getTransactionsFail());
   }
 }
 
@@ -52,17 +39,17 @@ function* getTransactionInfoSaga(action) {
       action.transactionId
     );
 
-    yield put(getTransactionInfoSuccess(transaction));
+    yield put(actions.getTransactionInfoSuccess(transaction));
   } catch {
-    yield put(getTransactionInfoFail());
+    yield put(actions.getTransactionInfoFail());
   }
 }
 
 export default function* sagas() {
   yield all([
-    takeEvery(GET_BLOCKS, getBlocksSaga),
-    takeEvery(GET_BLOCK_INFO, getBlockInfoAndTransactionsSaga),
-    takeEvery(GET_TRANSACTIONS, getBlockInfoAndTransactionsSaga),
-    takeEvery(GET_TRANSACTION_INFO, getTransactionInfoSaga),
+    takeEvery(actions.GET_BLOCKS, getBlocksSaga),
+    takeEvery(actions.GET_BLOCK_INFO, getBlockInfoAndTransactionsSaga),
+    takeEvery(actions.GET_TRANSACTIONS, getBlockInfoAndTransactionsSaga),
+    takeEvery(actions.GET_TRANSACTION_INFO, getTransactionInfoSaga),
   ]);
 }
