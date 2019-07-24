@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { getTransactionInfo } from 'redux/actions';
 import TransactionDetail from 'screens/TransactionDetail';
 
-const mapStateToProps = (state, { match }) => ({
+export const mapStateToProps = (state, { match }) => ({
   transaction: state.transaction,
   transactionId: match.params.transactionId,
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   getTransactionInfo: transactionId =>
     dispatch(getTransactionInfo(transactionId)),
 });

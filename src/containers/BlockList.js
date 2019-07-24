@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { getBlocks } from 'redux/actions';
 import BlockList from 'screens/BlockList';
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   blocks: state.blocks,
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   getBlocks: () => dispatch(getBlocks()),
 });
 
