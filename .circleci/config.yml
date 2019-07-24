@@ -19,7 +19,7 @@ jobs:
           name: Unit Tests
           command: |
             yarn test --coverage
-            codecov CODECOV_TOKEN=$CODECOV_TOKEN < ./coverage/lcov.info || true
+            yarn run codecov CODECOV_TOKEN=$CODECOV_TOKEN < ./coverage/lcov.info || true
 
       - run:
           name: Integration Tests

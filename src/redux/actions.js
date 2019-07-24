@@ -1,41 +1,70 @@
-export const LOAD_BLOCKS = 'LOAD_BLOCKS';
-export const LOAD_BLOCKS_SUCCESS = 'LOAD_BLOCKS_SUCCESS';
-export const LOAD_BLOCKS_FAIL = 'LOAD_BLOCKS_SUCCESS';
+export const GET_BLOCKS = 'GET_BLOCKS';
+export const GET_BLOCKS_SUCCESS = 'GET_BLOCKS_SUCCESS';
+export const GET_BLOCKS_FAIL = 'GET_BLOCKS_FAIL';
 
-export const GET_BLOCK_DETAIL = 'GET_BLOCK_DETAIL';
-export const GET_BLOCK_DETAIL_SUCCESS = 'GET_BLOCK_DETAIL_SUCCESS';
-export const GET_BLOCK_DETAIL_FAIL = 'GET_BLOCK_DETAIL_FAIL';
+export const GET_BLOCK_INFO = 'GET_BLOCK_INFO';
+export const GET_BLOCK_INFO_SUCCESS = 'GET_BLOCK_INFO_SUCCESS';
+export const GET_BLOCK_INFO_FAIL = 'GET_BLOCK_INFO_FAIL';
 
-export const GET_TRANSACTION_DETAIL = 'GET_TRANSACTION_DETAIL';
+export const GET_TRANSACTIONS = 'GET_TRANSACTIONS';
+export const GET_TRANSACTIONS_SUCCESS = 'GET_TRANSACTIONS_SUCCESS';
+export const GET_TRANSACTIONS_FAIL = 'GET_TRANSACTIONS_FAIL';
 
-export const loadBlocks = () => ({
-  type: LOAD_BLOCKS,
+export const GET_TRANSACTION_INFO = 'GET_TRANSACTION_INFO';
+export const GET_TRANSACTION_INFO_SUCCESS = 'GET_TRANSACTION_INFO_SUCCESS';
+export const GET_TRANSACTION_INFO_FAIL = 'GET_TRANSACTION_INFO_FAIL';
+
+export const getBlocks = () => ({
+  type: GET_BLOCKS,
 });
 
-export const loadBlocksSuccess = data => ({
-  type: LOAD_BLOCKS_SUCCESS,
+export const getBlocksSuccess = data => ({
+  type: GET_BLOCKS_SUCCESS,
   data,
 });
 
-export const loadBlocksFail = () => ({
-  type: LOAD_BLOCKS_FAIL,
+export const getBlocksFail = () => ({
+  type: GET_BLOCKS_FAIL,
 });
 
-export const getBlockDetail = blockNumber => ({
-  type: GET_BLOCK_DETAIL,
-  blockNumber,
+export const getBlockInfo = blockId => ({
+  type: GET_BLOCK_INFO,
+  blockId,
 });
 
-export const getBlockDetailSuccess = data => ({
-  type: GET_BLOCK_DETAIL_SUCCESS,
+export const getBlockInfoSuccess = data => ({
+  type: GET_BLOCK_INFO_SUCCESS,
   data,
 });
 
-export const getBlockDetailFail = () => ({
-  type: GET_BLOCK_DETAIL_FAIL,
+export const getBlockInfoFail = () => ({
+  type: GET_BLOCK_INFO_FAIL,
 });
 
-export const getTransactionDetail = hash => ({
-  type: GET_TRANSACTION_DETAIL,
-  hash,
+export const getTransactions = blockId => ({
+  type: GET_TRANSACTIONS,
+  blockId,
+});
+
+export const getTransactionsSuccess = data => ({
+  type: GET_TRANSACTIONS_SUCCESS,
+  data,
+});
+
+export const getTransactionsFail = () => ({
+  type: GET_TRANSACTIONS_FAIL,
+});
+
+export const getTransactionInfo = transactionId => ({
+  type: GET_TRANSACTION_INFO,
+  transactionId,
+});
+
+export const getTransactionInfoSuccess = data => ({
+  type: GET_TRANSACTION_INFO_SUCCESS,
+  data,
+});
+
+export const getTransactionInfoFail = () => ({
+  type: GET_TRANSACTION_INFO_FAIL,
 });

@@ -1,12 +1,18 @@
 import { connect } from 'react-redux';
 
+import { getTransactions } from 'redux/actions';
 import TransactionsList from 'screens/TransactionsList';
 
-const mapStateToProps = state => ({
+export const mapStateToProps = (state, { match }) => ({
   transactions: state.transactions,
+  blockId: match.params.blockId,
+});
+
+export const mapDispatchToProps = dispatch => ({
+  getTransactions: blockId => dispatch(getTransactions(blockId)),
 });
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(TransactionsList);

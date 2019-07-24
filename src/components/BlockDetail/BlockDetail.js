@@ -10,7 +10,10 @@ const BlockDetail = ({ block, transactions }) => (
     <div>Gas Used: {block.gasUsed}</div>
     <div>Number: {block.number}</div>
     <div>
-      Transactions: <Link to="/transactions">{transactions.length}</Link>
+      Transactions:
+      <Link to={`/block/${block.number}/transactions/`}>
+        {transactions.length}
+      </Link>
     </div>
   </div>
 );

@@ -1,15 +1,16 @@
 import { connect } from 'react-redux';
 
-import { getTransactionDetail } from 'redux/actions';
+import { getTransactionInfo } from 'redux/actions';
 import TransactionDetail from 'screens/TransactionDetail';
 
-const mapStateToProps = (state, { match }) => ({
+export const mapStateToProps = (state, { match }) => ({
   transaction: state.transaction,
-  hash: match.params.number,
+  transactionId: match.params.transactionId,
 });
 
-const mapDispatchToProps = dispatch => ({
-  getTransactionDetail: hash => dispatch(getTransactionDetail(hash)),
+export const mapDispatchToProps = dispatch => ({
+  getTransactionInfo: transactionId =>
+    dispatch(getTransactionInfo(transactionId)),
 });
 
 export default connect(

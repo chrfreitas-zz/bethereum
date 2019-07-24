@@ -18,11 +18,15 @@ const App = () => (
     <Provider store={store}>
       <BrowserRouter>
         <Switch>
-          <Route path="/" exact={true} component={BlockList} />
-          <Route path="/block/:number" component={BlockDetail} />
-          <Route path="/transactions/" exact component={TransactionsList} />
+          <Route path="/" exact component={BlockList} />
+          <Route path="/block/:blockId" exact component={BlockDetail} />
           <Route
-            path="/transactions/:number"
+            path="/block/:blockId/transactions/"
+            exact
+            component={TransactionsList}
+          />
+          <Route
+            path="/transactions/:transactionId"
             exact
             component={TransactionDetail}
           />

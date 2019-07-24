@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
 
-import { getBlockDetail } from 'redux/actions';
+import { getBlockInfo } from 'redux/actions';
 import BlockDetail from 'screens/BlockDetail';
 
-const mapStateToProps = (state, props) => ({
+export const mapStateToProps = (state, { match }) => ({
   block: state.block,
   transactions: state.transactions,
-  match: props.match,
+  blockId: match.params.blockId,
 });
 
-const mapDispatchToProps = dispatch => ({
-  getBlockDetail: blockNumber => dispatch(getBlockDetail(blockNumber)),
+export const mapDispatchToProps = dispatch => ({
+  getBlockInfo: blockId => dispatch(getBlockInfo(blockId)),
 });
 
 export default connect(
