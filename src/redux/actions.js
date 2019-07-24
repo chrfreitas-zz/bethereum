@@ -27,9 +27,9 @@ export const getBlocksFail = () => ({
   type: GET_BLOCKS_FAIL,
 });
 
-export const getBlockInfo = data => ({
+export const getBlockInfo = blockId => ({
   type: GET_BLOCK_INFO,
-  data,
+  blockId,
 });
 
 export const getBlockInfoSuccess = data => ({
@@ -41,9 +41,9 @@ export const getBlockInfoFail = () => ({
   type: GET_BLOCK_INFO_FAIL,
 });
 
-export const getTransactions = data => ({
+export const getTransactions = blockId => ({
   type: GET_TRANSACTIONS,
-  data,
+  blockId,
 });
 
 export const getTransactionsSuccess = data => ({
@@ -55,8 +55,9 @@ export const getTransactionsFail = () => ({
   type: GET_TRANSACTIONS_FAIL,
 });
 
-export const getTransactionInfo = () => ({
+export const getTransactionInfo = transactionId => ({
   type: GET_TRANSACTION_INFO,
+  transactionId,
 });
 
 export const getTransactionInfoSuccess = data => ({

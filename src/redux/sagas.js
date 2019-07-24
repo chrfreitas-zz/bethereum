@@ -24,7 +24,7 @@ function* getBlocksSaga(action) {
 
 function* getBlockInfoAndTransactionsSaga(action) {
   try {
-    const block = yield call(Ethereum.getBlock, action.data);
+    const block = yield call(Ethereum.getBlock, action.blockId);
     const transactions = yield call(
       Ethereum.getTransactionsInfo,
       block.transactions

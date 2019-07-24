@@ -6,11 +6,11 @@ import BlockDetail from 'screens/BlockDetail';
 const mapStateToProps = (state, { match }) => ({
   block: state.block,
   transactions: state.transactions,
-  id: match.params.id,
+  blockId: match.params.blockId,
 });
 
 const mapDispatchToProps = dispatch => ({
-  getBlockInfo: blockNumber => dispatch(getBlockInfo(blockNumber)),
+  getBlockInfo: blockId => dispatch(getBlockInfo(blockId)),
 });
 
 export default connect(

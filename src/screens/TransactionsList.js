@@ -6,8 +6,8 @@ import Spinner from 'components/Spinner';
 
 class TransactionsListScreen extends Component {
   async componentDidMount() {
-    const { getTransactions, id } = this.props;
-    getTransactions(id);
+    const { getTransactions, blockId } = this.props;
+    getTransactions(blockId);
   }
 
   render() {

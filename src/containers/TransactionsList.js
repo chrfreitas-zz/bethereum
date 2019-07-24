@@ -5,11 +5,11 @@ import TransactionsList from 'screens/TransactionsList';
 
 const mapStateToProps = (state, { match }) => ({
   transactions: state.transactions,
-  id: match.params.id,
+  blockId: match.params.blockId,
 });
 
 const mapDispatchToProps = dispatch => ({
-  getTransactions: id => dispatch(getTransactions(id)),
+  getTransactions: blockId => dispatch(getTransactions(blockId)),
 });
 
 export default connect(
