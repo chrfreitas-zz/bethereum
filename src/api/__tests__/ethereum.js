@@ -1,14 +1,14 @@
-import Ethereum from './ethereum';
+import Ethereum from '../ethereum';
 
 describe('Ethereum API', () => {
   it('should get last 5 block in the blockchain', async () => {
-    const blocks = await Ethereum.getLastBlocks(5);
+    const blocks = await Ethereum.getBlocks(5);
 
     expect(blocks).toHaveLength(5);
   });
 
   it('should get the block passed by param', async () => {
-    const block = await Ethereum.getBlock(8187646);
+    const block = await Ethereum.getBlockInfo(8187646);
     const expectedBlock = {
       difficulty: '2263630803978458',
       extraData: '0x73696e6732',

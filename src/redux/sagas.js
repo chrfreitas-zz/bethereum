@@ -5,7 +5,7 @@ import Ethereum from 'api/ethereum';
 
 function* getBlocksSaga(action) {
   try {
-    const blocks = yield call(Ethereum.getLastBlocks, 10);
+    const blocks = yield call(Ethereum.getBlocks, 10);
     yield put(actions.getBlocksSuccess(blocks));
   } catch {
     yield put(actions.getBlocksFail());
@@ -14,9 +14,9 @@ function* getBlocksSaga(action) {
 
 function* getBlockInfoAndTransactionsSaga(action) {
   try {
-    const block = yield call(Ethereum.getBlock, action.blockId);
+    const block = yield call(Ethereum.getBlockInfo, action.blockId);
     const transactions = yield call(
-      Ethereum.getTransactionsInfo,
+      Ethereum.getTransactions,
       block.transactions
     );
 
