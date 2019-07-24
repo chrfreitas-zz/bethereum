@@ -1,21 +1,7 @@
 @import 'styles/color.scss';
+@import 'styles/color.scss';
 
 .main {
-  padding: 24px;
-  display: flex;
-  justify-content: center;
-  max-width: 500px;
-  margin: 0 auto;
-
-  &__logo {
-    width: 32px;
-  }
-
-  &__sidebar {
-    flex-basis: 60px;
-  }
-
-  &__content {
-    flex: 1;
-  }
+  padding: 52px;
+  background: $light-rosa;
 }
