@@ -23,13 +23,8 @@ describe('TransactionsList Container', () => {
     expect(mapStateToProps(state, props)).toEqual(expected);
   });
 
-  it('returns function that dispatch actions', () => {
-    const expected = {
-      getTransactions: blockId => getTransactions(blockId),
-    };
-
+  it('returns getTransactions to dispatch action', () => {
     const props = mapDispatchToProps(() => {});
-
-    expect(props).toEqual(expected);
+    expect(props.getTransactions).toBeDefined();
   });
 });

@@ -14,13 +14,8 @@ describe('BlockList Container', () => {
     expect(mapStateToProps(state)).toEqual(expected);
   });
 
-  it('returns function that dispatch actions', () => {
-    const expected = {
-      getBlocks: () => getBlocks(),
-    };
-
+  it('returns getBlocks to dispatch action', () => {
     const props = mapDispatchToProps(() => {});
-
-    expect(props).toEqual(expected);
+    expect(props.getBlocks).toBeDefined();
   });
 });

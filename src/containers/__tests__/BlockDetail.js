@@ -25,13 +25,8 @@ describe('BlockDetail Container', () => {
     expect(mapStateToProps(state, props)).toEqual(expected);
   });
 
-  it('returns function that dispatch actions', () => {
-    const expected = {
-      getBlockInfo: blockId => getBlockInfo(blockId),
-    };
-
+  it('returns getBlockInfo to dispatch action', () => {
     const props = mapDispatchToProps(() => {});
-
-    expect(props).toEqual(expected);
+    expect(props.getBlockInfo).toBeDefined();
   });
 });

@@ -23,13 +23,8 @@ describe('TransactionDetail Container', () => {
     expect(mapStateToProps(state, props)).toEqual(expected);
   });
 
-  it('returns function that dispatch actions', () => {
-    const expected = {
-      getTransactionInfo: transactionId => getTransactionInfo(transactionId),
-    };
-
+  it('returns getTransactionInfo to dispatch action', () => {
     const props = mapDispatchToProps(() => {});
-
-    expect(props).toEqual(expected);
+    expect(props.getTransactionInfo).toBeDefined();
   });
 });
