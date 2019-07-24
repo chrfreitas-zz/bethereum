@@ -10,7 +10,12 @@ class BlockDetailScreen extends Component {
 
   render() {
     const { block, transactions } = this.props;
-    return block && <BlockDetail block={block} transactions={transactions} />;
+    return (
+      block &&
+      transactions.length > 0 && (
+        <BlockDetail block={block} transactions={transactions} />
+      )
+    );
   }
 }
 

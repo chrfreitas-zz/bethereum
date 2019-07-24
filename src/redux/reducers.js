@@ -1,7 +1,8 @@
 import {
   GET_BLOCKS_SUCCESS,
   GET_BLOCK_INFO_SUCCESS,
-  GET_TRANSACTION_DETAIL,
+  GET_TRANSACTIONS_SUCCESS,
+  GET_TRANSACTION_INFO,
 } from 'redux/actions';
 
 const initialState = {
@@ -21,10 +22,14 @@ export default (state = initialState, action) => {
     case GET_BLOCK_INFO_SUCCESS:
       return {
         ...state,
-        block: action.data.block,
-        transactions: action.data.transactions,
+        block: action.data,
       };
-    case GET_TRANSACTION_DETAIL:
+    case GET_TRANSACTIONS_SUCCESS:
+      return {
+        ...state,
+        transactions: action.data,
+      };
+    case GET_TRANSACTION_INFO:
       return {
         ...state,
         transaction: state.transactions.filter(

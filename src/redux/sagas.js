@@ -3,10 +3,13 @@ import { all, call, put, takeEvery } from 'redux-saga/effects';
 import {
   GET_BLOCKS,
   GET_BLOCK_INFO,
+  GET_TRANSACTIONS,
   getBlocksSuccess,
   getBlocksFail,
   getBlockInfoSuccess,
   getBlockInfoFail,
+  getTransactionsSuccess,
+  getTransactionsFail,
 } from 'redux/actions';
 import Ethereum from 'api/ethereum';
 
@@ -19,9 +22,9 @@ function* getBlocksSaga(action) {
   }
 }
 
-function* getBlockInfoSaga(action) {
+function* getBlockInfoAndTransactionsSaga(action) {
   try {
-    const block = yield call(Ethereum.getBlock, action.blockNumber);
+    const block = yield call(Ethereum.getBlock, action.data);
     const transactions = yield call(
       Ethereum.getTransactionsInfo,
       block.transactions
@@ -31,17 +34,18 @@ function* getBlockInfoSaga(action) {
       transaction => Number(transaction.value) > 0
     );
 
-    yield put(
-      getBlockInfoSuccess({ block, transactions: transactionWithEther })
-    );
+    yield put(getBlockInfoSuccess(block));
+    yield put(getTransactionsSuccess(transactionWithEther));
   } catch {
     yield put(getBlockInfoFail());
+    yield put(getTransactionsFail());
   }
 }
 
 export default function* sagas() {
   yield all([
     takeEvery(GET_BLOCKS, getBlocksSaga),
-    takeEvery(GET_BLOCK_INFO, getBlockInfoSaga),
+    takeEvery(GET_BLOCK_INFO, getBlockInfoAndTransactionsSaga),
+    takeEvery(GET_TRANSACTIONS, getBlockInfoAndTransactionsSaga),
   ]);
 }

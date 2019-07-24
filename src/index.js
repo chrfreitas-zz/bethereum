@@ -18,8 +18,8 @@ const App = () => (
     <Provider store={store}>
       <BrowserRouter>
         <Switch>
-          <Route path="/" exact={true} component={BlockList} />
-          <Route path="/block/:id" component={BlockDetail} />
+          <Route path="/" exact component={BlockList} />
+          <Route path="/block/:id" exact component={BlockDetail} />
           <Route
             path="/block/:id/transactions/"
             exact

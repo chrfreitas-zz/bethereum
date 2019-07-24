@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { getTransactionDetail } from 'redux/actions';
+import { getTransactionInfo } from 'redux/actions';
 import TransactionDetail from 'screens/TransactionDetail';
 
 const mapStateToProps = (state, { match }) => ({
@@ -9,7 +9,7 @@ const mapStateToProps = (state, { match }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getTransactionDetail: id => dispatch(getTransactionDetail(id)),
+  getTransactionInfo: id => dispatch(getTransactionInfo(id)),
 });
 
 export default connect(
