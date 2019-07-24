@@ -32,6 +32,11 @@ const Ethereum = {
     return Promise.all(requests);
   },
 
+  getTransactionInfo: transactionId => {
+    const web3 = new Web3('https://mainnet.infura.io/');
+    return web3.eth.getTransaction(transactionId);
+  },
+
   convertToEther: value => {
     const web3 = new Web3('https://mainnet.infura.io/');
     return web3.utils.fromWei(value);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import TransactionDetail from 'components/TransactionDetail';
+import Spinner from 'components/Spinner';
 
 class TransactionDetailScreen extends Component {
   async componentDidMount() {
@@ -13,7 +14,7 @@ class TransactionDetailScreen extends Component {
     return transaction ? (
       <TransactionDetail transaction={transaction} />
     ) : (
-      <div />
+      <Spinner />
     );
   }
 }

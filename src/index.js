@@ -26,7 +26,7 @@ const App = () => (
             component={TransactionsList}
           />
           <Route
-            path="/block/:blockId/transactions/:transactionId"
+            path="/transactions/:transactionId"
             exact
             component={TransactionDetail}
           />

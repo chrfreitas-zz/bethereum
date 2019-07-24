@@ -4,12 +4,15 @@ import {
   GET_BLOCKS,
   GET_BLOCK_INFO,
   GET_TRANSACTIONS,
+  GET_TRANSACTION_INFO,
   getBlocksSuccess,
   getBlocksFail,
   getBlockInfoSuccess,
   getBlockInfoFail,
   getTransactionsSuccess,
   getTransactionsFail,
+  getTransactionInfoSuccess,
+  getTransactionInfoFail,
 } from 'redux/actions';
 import Ethereum from 'api/ethereum';
 
@@ -42,10 +45,24 @@ function* getBlockInfoAndTransactionsSaga(action) {
   }
 }
 
+function* getTransactionInfoSaga(action) {
+  try {
+    const transaction = yield call(
+      Ethereum.getTransactionInfo,
+      action.transactionId
+    );
+
+    yield put(getTransactionInfoSuccess(transaction));
+  } catch {
+    yield put(getTransactionInfoFail());
+  }
+}
+
 export default function* sagas() {
   yield all([
     takeEvery(GET_BLOCKS, getBlocksSaga),
     takeEvery(GET_BLOCK_INFO, getBlockInfoAndTransactionsSaga),
     takeEvery(GET_TRANSACTIONS, getBlockInfoAndTransactionsSaga),
+    takeEvery(GET_TRANSACTION_INFO, getTransactionInfoSaga),
   ]);
 }

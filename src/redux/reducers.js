@@ -2,7 +2,7 @@ import {
   GET_BLOCKS_SUCCESS,
   GET_BLOCK_INFO_SUCCESS,
   GET_TRANSACTIONS_SUCCESS,
-  GET_TRANSACTION_INFO,
+  GET_TRANSACTION_INFO_SUCCESS,
 } from 'redux/actions';
 
 const initialState = {
@@ -29,12 +29,10 @@ export default (state = initialState, action) => {
         ...state,
         transactions: action.data,
       };
-    case GET_TRANSACTION_INFO:
+    case GET_TRANSACTION_INFO_SUCCESS:
       return {
         ...state,
-        transaction: state.transactions.filter(
-          transaction => transaction.hash === action.hash
-        )[0],
+        transaction: action.data,
       };
     default:
       return state;
