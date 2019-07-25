@@ -15,12 +15,12 @@ const App = () => (
     <Provider store={store}>
       <BrowserRouter>
         <Switch>
-          <Route path="/" component={BlockList} />
           <Route
-            path="/transactions/:transactionId"
+            path="/block/:blockId/transactions/"
             exact
             component={TransactionsList}
           />
+          <Route path="/" component={BlockList} />
         </Switch>
       </BrowserRouter>
     </Provider>

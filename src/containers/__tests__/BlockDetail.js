@@ -106,6 +106,7 @@ describe('BlockDetail Select', () => {
       {
         title: 'Transactions',
         value: transactions.length,
+        route: `/block/${block.hash}/transactions/`,
       },
       {
         title: 'Size',

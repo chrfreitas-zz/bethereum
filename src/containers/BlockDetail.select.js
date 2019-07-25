@@ -10,6 +10,7 @@ export const formatBlock = (block, transactions) => [
   {
     title: 'Transactions',
     value: transactions.length,
+    route: `/block/${block.hash}/transactions/`,
   },
   {
     title: 'Size',

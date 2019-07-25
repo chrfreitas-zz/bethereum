@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import TransactionDetail from 'components/TransactionDetail';
 import Spinner from 'components/Spinner';
 
 class TransactionDetailScreen extends Component {
@@ -12,7 +11,13 @@ class TransactionDetailScreen extends Component {
   render() {
     const { transaction } = this.props;
     return transaction ? (
-      <TransactionDetail transaction={transaction} />
+      <div>
+        <div>Block Hash: {transaction.blockHash}</div>
+        <div>Hash: {transaction.hash}</div>
+        <div>From: {transaction.from}</div>
+        <div>To: {transaction.to}</div>
+        <div>Value: {transaction.value}</div>
+      </div>
     ) : (
       <Spinner />
     );
