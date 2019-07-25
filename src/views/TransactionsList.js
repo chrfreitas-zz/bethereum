@@ -13,11 +13,11 @@ class TransactionsListScreen extends Component {
   }
 
   render() {
-    const { transactions } = this.props;
+    const { transactions, isLoading } = this.props;
     return (
       <div>
         <Header>Transactions</Header>
-        {transactions.length === 0 ? <Spinner /> : <List data={transactions} />}
+        {isLoading ? <Spinner /> : <List data={transactions} />}
         <Route
           path="/blocks/:blockId/transactions/:transactionId"
           exact

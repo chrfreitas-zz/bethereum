@@ -5,8 +5,9 @@ import BlockDetail from 'views/BlockDetail';
 import { formatBlock } from './BlockDetail.select';
 
 export const mapStateToProps = (state, { match }) => ({
-  block: formatBlock(state.block, state.transactions),
+  block: formatBlock(state.block.values, state.transactions.values),
   blockId: match.params.blockId,
+  isLoading: state.block.isLoading,
 });
 
 export const mapDispatchToProps = dispatch => ({

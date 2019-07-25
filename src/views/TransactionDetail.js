@@ -9,8 +9,16 @@ class TransactionDetailScreen extends Component {
   }
 
   render() {
-    const { transaction } = this.props;
-    return transaction && <Sidebar header="Transaction" data={transaction} />;
+    const { transaction, isLoading } = this.props;
+    return (
+      transaction && (
+        <Sidebar
+          header="Transaction"
+          data={transaction}
+          isLoading={isLoading}
+        />
+      )
+    );
   }
 }
 

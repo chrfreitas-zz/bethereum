@@ -5,7 +5,11 @@ import TransactionsList from 'views/TransactionsList';
 import { formatTransactions } from './TransactionsList.select';
 
 export const mapStateToProps = (state, { match }) => ({
-  transactions: formatTransactions(state.transactions, match.params.blockId),
+  transactions: formatTransactions(
+    state.transactions.values,
+    match.params.blockId
+  ),
+  isLoading: state.transactions.isLoading,
 });
 
 export const mapDispatchToProps = dispatch => ({
