@@ -10,7 +10,8 @@
   top: 0;
   right: 0;
   height: calc(100vh - 30px);
-  min-width: 35%;
+  width: 35%;
+  overflow: auto;
 
   &__header {
     font-weight: bold;
@@ -41,5 +42,8 @@
     font-size: 20px;
     line-height: 27px;
     color: $black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
