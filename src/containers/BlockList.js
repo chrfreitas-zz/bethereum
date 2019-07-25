@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { getBlocks } from 'redux/actions';
-import BlockList from 'screens/BlockList';
+import BlockList from 'views/BlockList';
 import { formatBlocks } from './BlockList.select';
 
 export const mapStateToProps = state => ({

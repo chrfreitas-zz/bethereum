@@ -3,17 +3,15 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import Main from 'screens/Main';
 import BlockList from 'containers/BlockList';
 import TransactionsList from 'containers/TransactionsList';
-import TransactionDetail from 'containers/TransactionDetail';
 import store from 'redux/store';
 
 // eslint-disable-next-line
 import styles from 'styles/base.scss';
 
 const App = () => (
-  <Main>
+  <div className="main">
     <Provider store={store}>
       <BrowserRouter>
         <Switch>
@@ -26,7 +24,7 @@ const App = () => (
         </Switch>
       </BrowserRouter>
     </Provider>
-  </Main>
+  </div>
 );
 
 ReactDOM.render(<App />, document.getElementById('root'));

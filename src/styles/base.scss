@@ -1,4 +1,5 @@
 @import 'styles/reset.scss';
+@import 'styles/color.scss';
 
 *,
 html {
@@ -7,4 +8,11 @@ html {
 
 html {
   font-family: 'Noto Sans', sans-serif;
+}
+
+.main {
+  position: relative;
+  padding: 52px;
+  background: $light-rosa;
+  min-height: 100vh;
 }
