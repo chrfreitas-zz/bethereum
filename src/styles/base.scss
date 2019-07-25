@@ -1,5 +1,10 @@
 @import 'styles/reset.scss';
 
+*,
+html {
+  box-sizing: border-box;
+}
+
 html {
   font-family: 'Noto Sans', sans-serif;
 }

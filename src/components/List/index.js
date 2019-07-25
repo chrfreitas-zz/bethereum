@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 import styles from './List.scss';
 
-export default list => (
+export default ({ data }) => (
   <ul className="list">
-    {list.map(item => (
+    {data.map(item => (
       <li className="list__item">
         <Link to={item.route}>{item.text}</Link>
       </li>

@@ -1,7 +1,25 @@
+@import 'styles/color.scss';
+
 .list {
   &__item {
-    padding: 34px 36px;
+    margin: 16px 0;
     font-size: 20px;
     line-height: 27px;
+    background: $white;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    a {
+      display: inline-block;
+      padding: 34px 36px;
+      color: $black;
+      text-decoration: none;
+    }
+
+    &:hover {
+      background: $rosa;
+    }
   }
 }

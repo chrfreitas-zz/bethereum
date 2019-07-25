@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import BlockList from 'components/BlockList';
+import List from 'components/List';
 import Header from 'components/Header';
 import Spinner from 'components/Spinner';
 
@@ -13,10 +13,12 @@ class BlockListScreen extends Component {
   render() {
     const { blocks } = this.props;
 
+    console.log(blocks);
+
     return (
       <div>
         <Header>Blocks</Header>
-        {blocks.length === 0 ? <Spinner /> : <BlockList data={blocks} />}
+        {blocks.length === 0 ? <Spinner /> : <List data={blocks} />}
       </div>
     );
   }
