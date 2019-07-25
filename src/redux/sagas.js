@@ -3,7 +3,7 @@ import { all, call, put, takeEvery } from 'redux-saga/effects';
 import * as actions from 'redux/actions';
 import Ethereum from 'api/ethereum';
 
-function* getBlocksSaga(action) {
+export function* getBlocksSaga(action) {
   try {
     const blocks = yield call(Ethereum.getBlocks, 10);
     yield put(actions.getBlocksSuccess(blocks));
@@ -12,7 +12,7 @@ function* getBlocksSaga(action) {
   }
 }
 
-function* getBlockInfoAndTransactionsSaga(action) {
+export function* getBlockInfoAndTransactionsSaga(action) {
   try {
     const block = yield call(Ethereum.getBlockInfo, action.blockId);
     const transactions = yield call(
@@ -32,7 +32,7 @@ function* getBlockInfoAndTransactionsSaga(action) {
   }
 }
 
-function* getTransactionInfoSaga(action) {
+export function* getTransactionInfoSaga(action) {
   try {
     const transaction = yield call(
       Ethereum.getTransactionInfo,

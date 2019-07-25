@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { getTransactions } from 'redux/actions';
-import TransactionsList from 'screens/TransactionsList';
+import TransactionsList from 'views/TransactionsList';
 
 export const mapStateToProps = (state, { match }) => ({
   transactions: state.transactions,

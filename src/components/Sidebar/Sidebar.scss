@@ -1,0 +1,49 @@
+@import 'styles/color.scss';
+
+.sidebar {
+  background: $white;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  margin: 16px;
+  padding: 45px 30px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: calc(100vh - 30px);
+  width: 35%;
+  overflow: auto;
+
+  &__header {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 33px;
+  }
+
+  &__divider {
+    border: 2px solid $light-rosa;
+    margin: 40px 0;
+  }
+
+  &__data {
+    margin: 0 0 54px 0;
+  }
+
+  &__label {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: $gray;
+    margin: 0 0 8px 0;
+  }
+
+  &__value {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 27px;
+    color: $black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

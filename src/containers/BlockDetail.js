@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 
 import { getBlockInfo } from 'redux/actions';
-import BlockDetail from 'screens/BlockDetail';
+import BlockDetail from 'views/BlockDetail';
+import { formatBlock } from './BlockDetail.select';
 
 export const mapStateToProps = (state, { match }) => ({
-  block: state.block,
-  transactions: state.transactions,
+  block: formatBlock(state.block, state.transactions),
   blockId: match.params.blockId,
 });
 

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 
-import BlockList from 'components/BlockList';
 import Header from 'components/Header';
+import List from 'components/List';
 import Spinner from 'components/Spinner';
+import BlockDetail from 'containers/BlockDetail';
 
 class BlockListScreen extends Component {
   async componentDidMount() {
@@ -15,8 +17,9 @@ class BlockListScreen extends Component {
 
     return (
       <div>
-        <Header>Blocks</Header>
-        {blocks.length === 0 ? <Spinner /> : <BlockList data={blocks} />}
+        <Header>Latests Blocks</Header>
+        {blocks.length === 0 ? <Spinner /> : <List data={blocks} />}
+        <Route path="/block/:blockId" component={BlockDetail} />
       </div>
     );
   }

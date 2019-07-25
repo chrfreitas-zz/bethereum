@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import BlockDetail from 'components/BlockDetail';
+import Sidebar from 'components/Sidebar';
 
 class BlockDetailScreen extends Component {
   componentDidMount = async () => {
@@ -9,13 +9,8 @@ class BlockDetailScreen extends Component {
   };
 
   render() {
-    const { block, transactions } = this.props;
-    return (
-      block &&
-      transactions.length > 0 && (
-        <BlockDetail block={block} transactions={transactions} />
-      )
-    );
+    const { block } = this.props;
+    return block && <Sidebar header="Block" data={block} />;
   }
 }
 
