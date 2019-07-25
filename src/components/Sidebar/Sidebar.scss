@@ -12,6 +12,8 @@
   height: calc(100vh - 30px);
   width: 35%;
   overflow: auto;
+  animation: slide 0.3s;
+  max-width: 550px;
 
   &__header {
     font-weight: bold;
@@ -45,5 +47,15 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+}
+
+@keyframes slide {
+  0% {
+    right: -100%;
+  }
+
+  100% {
+    right: 0;
   }
 }

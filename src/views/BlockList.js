@@ -15,8 +15,6 @@ class BlockListScreen extends Component {
   render() {
     const { blocks } = this.props;
 
-    console.log('render');
-
     return (
       <div>
         <Header>Latests Blocks</Header>
