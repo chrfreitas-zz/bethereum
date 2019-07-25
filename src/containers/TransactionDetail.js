@@ -2,9 +2,10 @@ import { connect } from 'react-redux';
 
 import { getTransactionInfo } from 'redux/actions';
 import TransactionDetail from 'views/TransactionDetail';
+import { formatTransaction } from './TransactionDetail.select';
 
 export const mapStateToProps = (state, { match }) => ({
-  transaction: state.transaction,
+  transaction: formatTransaction(state.transaction),
   transactionId: match.params.transactionId,
 });
 

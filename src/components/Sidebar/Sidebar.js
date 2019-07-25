@@ -9,7 +9,7 @@ export default ({ header, data }) => (
     <h3 className="sidebar__header">{header}</h3>
     <hr className="sidebar__divider" />
     {data.map(item => (
-      <div className="sidebar__data" key={item.value}>
+      <div className="sidebar__data" key={item.title}>
         <div className="sidebar__label">{item.title}</div>
         <div className="sidebar__value">
           {item.route ? <Link to={item.route}>{item.value}</Link> : item.value}

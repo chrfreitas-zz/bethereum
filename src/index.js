@@ -17,7 +17,6 @@ const App = () => (
         <Switch>
           <Route
             path="/block/:blockId/transactions/"
-            exact
             component={TransactionsList}
           />
           <Route path="/" component={BlockList} />

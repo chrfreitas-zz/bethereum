@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
+import List from 'components/List';
 import Header from 'components/Header';
 import Spinner from 'components/Spinner';
+import TransactionDetail from 'containers/TransactionDetail';
 
 class TransactionsListScreen extends Component {
   async componentDidMount() {
@@ -12,23 +14,15 @@ class TransactionsListScreen extends Component {
 
   render() {
     const { transactions } = this.props;
-
     return (
       <div>
-        <Header>Blocks</Header>
-        {transactions.length === 0 ? (
-          <Spinner />
-        ) : (
-          <ul>
-            {transactions.map(transaction => (
-              <li key={transaction.hash}>
-                <Link to={`/transactions/${transaction.hash}`}>
-                  {transaction.hash}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        )}
+        <Header>Transactions</Header>
+        {transactions.length === 0 ? <Spinner /> : <List data={transactions} />}
+        <Route
+          path="/block/:blockId/transactions/:transactionId"
+          exact
+          component={TransactionDetail}
+        />
       </div>
     );
   }

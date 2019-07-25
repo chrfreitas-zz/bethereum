@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Spinner from 'components/Spinner';
+import Sidebar from 'components/Sidebar';
 
 class TransactionDetailScreen extends Component {
   async componentDidMount() {
@@ -10,17 +10,7 @@ class TransactionDetailScreen extends Component {
 
   render() {
     const { transaction } = this.props;
-    return transaction ? (
-      <div>
-        <div>Block Hash: {transaction.blockHash}</div>
-        <div>Hash: {transaction.hash}</div>
-        <div>From: {transaction.from}</div>
-        <div>To: {transaction.to}</div>
-        <div>Value: {transaction.value}</div>
-      </div>
-    ) : (
-      <Spinner />
-    );
+    return transaction && <Sidebar header="Transaction" data={transaction} />;
   }
 }
 

@@ -15,11 +15,13 @@ class BlockListScreen extends Component {
   render() {
     const { blocks } = this.props;
 
+    console.log('render');
+
     return (
       <div>
         <Header>Latests Blocks</Header>
         {blocks.length === 0 ? <Spinner /> : <List data={blocks} />}
-        <Route path="/block/:blockId" component={BlockDetail} />
+        <Route path="/block/:blockId" exact component={BlockDetail} />
       </div>
     );
   }
