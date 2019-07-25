@@ -95,13 +95,13 @@ describe('BlockList Select', () => {
         text:
           '0x3995870ea9b9121065831fa8d73315639b9bd0e945c524b9da71596405e6833e',
         route:
-          '/block/0x3995870ea9b9121065831fa8d73315639b9bd0e945c524b9da71596405e6833e',
+          '/blocks/0x3995870ea9b9121065831fa8d73315639b9bd0e945c524b9da71596405e6833e',
       },
       {
         text:
           '0x3995870ea9b9121065831fa8d73315639b9bd0e945c524b9da71596405e6833e',
         route:
-          '/block/0x3995870ea9b9121065831fa8d73315639b9bd0e945c524b9da71596405e6833e',
+          '/blocks/0x3995870ea9b9121065831fa8d73315639b9bd0e945c524b9da71596405e6833e',
       },
     ];
 

@@ -10,6 +10,7 @@ class BlockDetailScreen extends Component {
 
   render() {
     const { block } = this.props;
+    console.log(block);
     return block && <Sidebar header="Block" data={block} />;
   }
 }

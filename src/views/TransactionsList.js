@@ -19,7 +19,7 @@ class TransactionsListScreen extends Component {
         <Header>Transactions</Header>
         {transactions.length === 0 ? <Spinner /> : <List data={transactions} />}
         <Route
-          path="/block/:blockId/transactions/:transactionId"
+          path="/blocks/:blockId/transactions/:transactionId"
           exact
           component={TransactionDetail}
         />

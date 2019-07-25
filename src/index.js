@@ -16,7 +16,7 @@ const App = () => (
       <BrowserRouter>
         <Switch>
           <Route
-            path="/block/:blockId/transactions/"
+            path="/blocks/:blockId/transactions/"
             component={TransactionsList}
           />
           <Route path="/" component={BlockList} />

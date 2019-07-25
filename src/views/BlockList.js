@@ -19,7 +19,7 @@ class BlockListScreen extends Component {
       <div>
         <Header>Latests Blocks</Header>
         {blocks.length === 0 ? <Spinner /> : <List data={blocks} />}
-        <Route path="/block/:blockId" exact component={BlockDetail} />
+        <Route path="/blocks/:blockId" exact component={BlockDetail} />
       </div>
     );
   }
