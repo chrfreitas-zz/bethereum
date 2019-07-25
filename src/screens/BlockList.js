@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
-import List from 'components/List';
 import Header from 'components/Header';
+import List from 'components/List';
+import Sidebar from 'components/Sidebar';
 import Spinner from 'components/Spinner';
 
 class BlockListScreen extends Component {
@@ -13,12 +14,11 @@ class BlockListScreen extends Component {
   render() {
     const { blocks } = this.props;
 
-    console.log(blocks);
-
     return (
       <div>
         <Header>Blocks</Header>
         {blocks.length === 0 ? <Spinner /> : <List data={blocks} />}
+        <Sidebar />
       </div>
     );
   }
