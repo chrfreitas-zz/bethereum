@@ -9,17 +9,20 @@
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.05);
     border-radius: 6px;
     cursor: pointer;
-    transition: background 0.2s;
 
     a {
       display: inline-block;
       padding: 34px 36px;
       color: $black;
       text-decoration: none;
-    }
+      width: 100%;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
 
-    &:hover {
-      background: $rosa;
+      &:hover {
+        background: $rosa;
+        color: $dark-rosa;
+      }
     }
   }
 }
