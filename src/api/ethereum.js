@@ -29,7 +29,7 @@ const Ethereum = {
 
   getTransactionInfo: transactionId => api.eth.getTransaction(transactionId),
 
-  convertToEther: value => api.utils.fromWei(value),
+  convertToEther: (value = '') => api.utils.fromWei(value),
 };
 
 export default Ethereum;
