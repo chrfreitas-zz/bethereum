@@ -4,8 +4,14 @@ import { formatBlock } from '../BlockDetail.select';
 describe('BlockDetail Container', () => {
   it('returns object the state turned in props', () => {
     const state = {
-      block: {},
-      transactions: [],
+      block: {
+        values: {},
+        isLoading: false,
+      },
+      transactions: {
+        values: [],
+        isLoading: false,
+      },
     };
 
     const props = {
@@ -18,15 +24,38 @@ describe('BlockDetail Container', () => {
 
     const expected = {
       block: [
-        { title: 'Difficulty', value: undefined },
-        { title: 'Timestamp', value: undefined },
-        { title: 'Transactions', value: 0 },
-        { title: 'Size', value: undefined },
-        { title: 'Hash', value: undefined },
-        { title: 'Parent Hash', value: undefined },
-        { title: 'Miner By', value: undefined },
+        {
+          title: 'Hash',
+          value: undefined,
+        },
+        {
+          title: 'Difficulty',
+          value: undefined,
+        },
+        {
+          title: 'Miner By',
+          value: undefined,
+        },
+        {
+          title: 'Transactions',
+          value: 0,
+          route: `/blocks/${state.block.values.hash}/transactions/`,
+        },
+        {
+          title: 'Timestamp',
+          value: undefined,
+        },
+        {
+          title: 'Size',
+          value: undefined,
+        },
+        {
+          title: 'Parent Hash',
+          value: undefined,
+        },
       ],
       blockId: props.match.params.blockId,
+      isLoading: false,
     };
 
     expect(mapStateToProps(state, props)).toEqual(expected);
@@ -96,12 +125,16 @@ describe('BlockDetail Select', () => {
     const result = formatBlock(block, transactions);
     const expected = [
       {
+        title: 'Hash',
+        value: block.hash,
+      },
+      {
         title: 'Difficulty',
         value: block.difficulty,
       },
       {
-        title: 'Timestamp',
-        value: block.timestamp,
+        title: 'Miner By',
+        value: block.miner,
       },
       {
         title: 'Transactions',
@@ -109,20 +142,16 @@ describe('BlockDetail Select', () => {
         route: `/blocks/${block.hash}/transactions/`,
       },
       {
+        title: 'Timestamp',
+        value: block.timestamp,
+      },
+      {
         title: 'Size',
         value: block.size,
       },
       {
-        title: 'Hash',
-        value: block.hash,
-      },
-      {
         title: 'Parent Hash',
         value: block.parentHash,
-      },
-      {
-        title: 'Miner By',
-        value: block.miner,
       },
     ];
 

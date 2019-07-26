@@ -1,11 +1,15 @@
 export const formatBlock = (block, transactions) => [
   {
+    title: 'Hash',
+    value: block.hash,
+  },
+  {
     title: 'Difficulty',
     value: block.difficulty,
   },
   {
-    title: 'Timestamp',
-    value: block.timestamp,
+    title: 'Miner By',
+    value: block.miner,
   },
   {
     title: 'Transactions',
@@ -13,19 +17,15 @@ export const formatBlock = (block, transactions) => [
     route: `/blocks/${block.hash}/transactions/`,
   },
   {
+    title: 'Timestamp',
+    value: block.timestamp,
+  },
+  {
     title: 'Size',
     value: block.size,
   },
   {
-    title: 'Hash',
-    value: block.hash,
-  },
-  {
     title: 'Parent Hash',
     value: block.parentHash,
-  },
-  {
-    title: 'Miner By',
-    value: block.miner,
   },
 ];

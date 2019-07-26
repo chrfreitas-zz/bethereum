@@ -4,11 +4,15 @@ import { formatBlocks } from '../BlockList.select';
 describe('BlockList Container', () => {
   it('returns object the state turned in props', () => {
     const state = {
-      blocks: [],
+      blocks: {
+        values: [],
+        isLoading: false,
+      },
     };
 
     const expected = {
-      blocks: state.blocks,
+      blocks: state.blocks.values,
+      isLoading: false,
     };
 
     expect(mapStateToProps(state)).toEqual(expected);
