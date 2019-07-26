@@ -9,8 +9,10 @@ class BlockDetailScreen extends Component {
   };
 
   render() {
-    const { block } = this.props;
-    return block && <Sidebar header="Block" data={block} />;
+    const { block, isLoading } = this.props;
+    return (
+      block && <Sidebar header="Block" data={block} isLoading={isLoading} />
+    );
   }
 }
 

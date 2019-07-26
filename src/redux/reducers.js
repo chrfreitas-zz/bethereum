@@ -6,10 +6,22 @@ import {
 } from 'redux/actions';
 
 const initialState = {
-  blocks: [],
-  block: {},
-  transactions: [],
-  transaction: {},
+  blocks: {
+    values: [],
+    isLoading: true,
+  },
+  block: {
+    values: {},
+    isLoading: true,
+  },
+  transactions: {
+    values: [],
+    isLoading: true,
+  },
+  transaction: {
+    values: {},
+    isLoading: true,
+  },
 };
 
 export default (state = initialState, action) => {
@@ -17,22 +29,34 @@ export default (state = initialState, action) => {
     case GET_BLOCKS_SUCCESS:
       return {
         ...state,
-        blocks: action.data,
+        blocks: {
+          values: action.data,
+          isLoading: false,
+        },
       };
     case GET_BLOCK_INFO_SUCCESS:
       return {
         ...state,
-        block: action.data,
+        block: {
+          values: action.data,
+          isLoading: false,
+        },
       };
     case GET_TRANSACTIONS_SUCCESS:
       return {
         ...state,
-        transactions: action.data,
+        transactions: {
+          values: action.data,
+          isLoading: false,
+        },
       };
     case GET_TRANSACTION_INFO_SUCCESS:
       return {
         ...state,
-        transaction: action.data,
+        transaction: {
+          values: action.data,
+          isLoading: false,
+        },
       };
     default:
       return state;

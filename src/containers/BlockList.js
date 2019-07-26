@@ -5,7 +5,8 @@ import BlockList from 'views/BlockList';
 import { formatBlocks } from './BlockList.select';
 
 export const mapStateToProps = state => ({
-  blocks: formatBlocks(state.blocks),
+  blocks: formatBlocks(state.blocks.values),
+  isLoading: state.blocks.isLoading,
 });
 
 export const mapDispatchToProps = dispatch => ({

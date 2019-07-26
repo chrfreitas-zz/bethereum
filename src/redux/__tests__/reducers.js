@@ -3,10 +3,22 @@ import * as actions from '../actions';
 
 describe('Reducer', () => {
   const initialState = {
-    blocks: [],
-    block: {},
-    transactions: [],
-    transaction: {},
+    blocks: {
+      values: [],
+      isLoading: true,
+    },
+    block: {
+      values: {},
+      isLoading: true,
+    },
+    transactions: {
+      values: [],
+      isLoading: true,
+    },
+    transaction: {
+      values: {},
+      isLoading: true,
+    },
   };
 
   it('should test GET_BLOCKS_SUCCESS action', () => {
@@ -19,7 +31,10 @@ describe('Reducer', () => {
 
     const expected = {
       ...initialState,
-      blocks: action.data,
+      blocks: {
+        values: action.data,
+        isLoading: false,
+      },
     };
 
     expect(newState).toEqual(expected);
@@ -35,7 +50,10 @@ describe('Reducer', () => {
 
     const expected = {
       ...initialState,
-      block: action.data,
+      block: {
+        values: action.data,
+        isLoading: false,
+      },
     };
 
     expect(newState).toEqual(expected);
@@ -51,7 +69,10 @@ describe('Reducer', () => {
 
     const expected = {
       ...initialState,
-      transactions: action.data,
+      transactions: {
+        values: action.data,
+        isLoading: false,
+      },
     };
 
     expect(newState).toEqual(expected);
@@ -67,7 +88,10 @@ describe('Reducer', () => {
 
     const expected = {
       ...initialState,
-      transaction: action.data,
+      transaction: {
+        values: action.data,
+        isLoading: false,
+      },
     };
 
     expect(newState).toEqual(expected);

@@ -4,11 +4,15 @@ import { formatBlocks } from '../BlockList.select';
 describe('BlockList Container', () => {
   it('returns object the state turned in props', () => {
     const state = {
-      blocks: [],
+      blocks: {
+        values: [],
+        isLoading: false,
+      },
     };
 
     const expected = {
-      blocks: state.blocks,
+      blocks: state.blocks.values,
+      isLoading: false,
     };
 
     expect(mapStateToProps(state)).toEqual(expected);
@@ -95,13 +99,13 @@ describe('BlockList Select', () => {
         text:
           '0x3995870ea9b9121065831fa8d73315639b9bd0e945c524b9da71596405e6833e',
         route:
-          '/block/0x3995870ea9b9121065831fa8d73315639b9bd0e945c524b9da71596405e6833e',
+          '/blocks/0x3995870ea9b9121065831fa8d73315639b9bd0e945c524b9da71596405e6833e',
       },
       {
         text:
           '0x3995870ea9b9121065831fa8d73315639b9bd0e945c524b9da71596405e6833e',
         route:
-          '/block/0x3995870ea9b9121065831fa8d73315639b9bd0e945c524b9da71596405e6833e',
+          '/blocks/0x3995870ea9b9121065831fa8d73315639b9bd0e945c524b9da71596405e6833e',
       },
     ];
 

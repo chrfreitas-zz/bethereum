@@ -8,11 +8,13 @@ html {
 
 html {
   font-family: 'Noto Sans', sans-serif;
+  background: $light-rosa;
 }
 
 .main {
   position: relative;
   padding: 52px;
-  background: $light-rosa;
   min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
 }

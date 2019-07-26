@@ -2,10 +2,14 @@ import { connect } from 'react-redux';
 
 import { getTransactions } from 'redux/actions';
 import TransactionsList from 'views/TransactionsList';
+import { formatTransactions } from './TransactionsList.select';
 
 export const mapStateToProps = (state, { match }) => ({
-  transactions: state.transactions,
-  blockId: match.params.blockId,
+  transactions: formatTransactions(
+    state.transactions.values,
+    match.params.blockId
+  ),
+  isLoading: state.transactions.isLoading,
 });
 
 export const mapDispatchToProps = dispatch => ({
